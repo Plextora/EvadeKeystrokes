@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EvadeKeystrokes"
         mc:Ignorable="d"
-        Title="Evade Keystrokes" Height="450" Width="800">
+        Title="Evade Keystrokes"
+        Height="450"
+        Width="800"
+        Background="Transparent">
     <Grid>
         
     </Grid>

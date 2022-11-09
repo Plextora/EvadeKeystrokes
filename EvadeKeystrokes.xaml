@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EvadeKeystrokes"
-        xmlns:keystrokes="clr-namespace:ButtonEx"
         mc:Ignorable="d"
         Title="Evade Keystrokes"
         Height="250"
@@ -14,9 +13,9 @@
         WindowStyle="None"
         Closing="WindowClose">
     <Grid>
-        <keystrokes:KeystrokeButton x:Name="WKeystroke" Content="W" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" FontSize="20"/>
-        <keystrokes:KeystrokeButton x:Name="AKeystroke" Content="A" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Margin="100,150,0,0" FontSize="20"/>
-        <keystrokes:KeystrokeButton x:Name="SKeystroke" Content="S" HorizontalAlignment="Center" VerticalAlignment="Top" Width="50" Height="50" Margin="0,150,0,0" FontSize="20"/>
-        <keystrokes:KeystrokeButton x:Name="DKeystroke" Content="D" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Margin="200,150,0,0" FontSize="20"/>
+        <Button x:Name="WKeystroke" Content="W" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" FontSize="20"/>
+        <Button x:Name="AKeystroke" Content="A" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Margin="100,150,0,0" FontSize="20"/>
+        <Button x:Name="SKeystroke" Content="S" HorizontalAlignment="Center" VerticalAlignment="Top" Width="50" Height="50" Margin="0,150,0,0" FontSize="20"/>
+        <Button x:Name="DKeystroke" Content="D" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Margin="200,150,0,0" FontSize="20"/>
     </Grid>
 </Window>

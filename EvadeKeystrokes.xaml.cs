@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 using Gma.System.MouseKeyHook;
+using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 
 namespace EvadeKeystrokes
 {
@@ -22,9 +10,36 @@ namespace EvadeKeystrokes
     /// </summary>
     public partial class MainWindow : Window
     {
+        private IKeyboardMouseEvents m_GlobalHook;
+
         public MainWindow()
         {
             InitializeComponent();
+            Subscribe();
+        }
+
+        private void WindowClose(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Unsubscribe();
+        }
+
+        public void Subscribe()
+        {
+            m_GlobalHook = Hook.GlobalEvents();
+
+            m_GlobalHook.KeyDown += OnKeyDown;
+        }
+
+        private void OnKeyDown(object sender, KeyEventArgs e)
+        {
+            // do cool stuff
+        }
+
+        public void Unsubscribe()
+        {
+            m_GlobalHook.KeyDown -= OnKeyDown;
+
+            m_GlobalHook.Dispose();
         }
     }
 }

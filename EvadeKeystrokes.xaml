@@ -13,6 +13,9 @@
         AllowsTransparency="True"
         WindowStyle="None">
     <Grid>
-
+        <keystrokes:KeystrokeButton Content="W" HorizontalAlignment="Center" VerticalAlignment="Center" Width="50" Height="50" FontSize="20"/>
+        <keystrokes:KeystrokeButton Content="A" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Margin="100,150,0,0" FontSize="20"/>
+        <keystrokes:KeystrokeButton Content="S" HorizontalAlignment="Center" VerticalAlignment="Top" Width="50" Height="50" Margin="0,150,0,0" FontSize="20"/>
+        <keystrokes:KeystrokeButton Content="D" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Margin="200,150,0,0" FontSize="20"/>
     </Grid>
 </Window>

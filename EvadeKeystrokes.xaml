@@ -7,12 +7,12 @@
         xmlns:keystrokes="clr-namespace:ButtonEx"
         mc:Ignorable="d"
         Title="Evade Keystrokes"
-        Height="450"
-        Width="800"
+        Height="250"
+        Width="350"
         Background="Transparent"
         AllowsTransparency="True"
         WindowStyle="None">
     <Grid>
-        
+
     </Grid>
 </Window>

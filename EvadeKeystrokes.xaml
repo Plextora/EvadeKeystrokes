@@ -20,7 +20,8 @@
         <Button x:Name="DKeystroke" Content="D" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" Margin="109,80,0,0" FontSize="20"/>
         <Button x:Name="OneKeystroke" Content="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="40" Height="40" FontSize="20" Margin="0,80,0,0"/>
         <Button x:Name="TwoKeystroke" Content="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" FontSize="20" Margin="200,80,0,0"/>
-        <Button x:Name="RKeystroke" Content="R" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" FontSize="20" Margin="29,125,0,0"/>
-        <Button x:Name="TKeystroke" Content="T" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" FontSize="20" Margin="74,125,0,0"/>
+        <Button x:Name="RKeystroke" Content="R" HorizontalAlignment="Center" VerticalAlignment="Top" Width="40" Height="40" FontSize="20" Margin="0,125,0,0"/>
+        <Button x:Name="TKeystroke" Content="T" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" FontSize="20" Margin="200,125,0,0"/>
+        <Button x:Name="SpacebarKeystroke" Content="Space" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="40" FontSize="20" Margin="29,125,0,0"/>
     </Grid>
 </Window>

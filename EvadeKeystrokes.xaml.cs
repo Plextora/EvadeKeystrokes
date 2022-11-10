@@ -61,6 +61,9 @@ namespace EvadeKeystrokes
                 case Keys.D:
                     ActivateButton(DKeystroke);
                     break;
+                case Keys.Space:
+                    ActivateButton(SpacebarKeystroke);
+                    break;
                 case Keys.D1:
                     ActivateButton(OneKeystroke);
                     break;
@@ -91,6 +94,9 @@ namespace EvadeKeystrokes
                     break;
                 case Keys.D:
                     DeactivateButton(DKeystroke);
+                    break;
+                case Keys.Space:
+                    DeactivateButton(SpacebarKeystroke);
                     break;
                 case Keys.D1:
                     DeactivateButton(OneKeystroke);

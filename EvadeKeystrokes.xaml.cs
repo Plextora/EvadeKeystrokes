@@ -52,6 +52,15 @@ namespace EvadeKeystrokes
                 case Keys.W:
                     ActivateButton(WKeystroke);
                     break;
+                case Keys.A:
+                    ActivateButton(AKeystroke);
+                    break;
+                case Keys.S:
+                    ActivateButton(SKeystroke);
+                    break;
+                case Keys.D:
+                    ActivateButton(DKeystroke);
+                    break;
             }
         }
 
@@ -61,6 +70,15 @@ namespace EvadeKeystrokes
             {
                 case Keys.W:
                     DeactivateButton(WKeystroke);
+                    break;
+                case Keys.A:
+                    DeactivateButton(AKeystroke);
+                    break;
+                case Keys.S:
+                    DeactivateButton(SKeystroke);
+                    break;
+                case Keys.D:
+                    DeactivateButton(DKeystroke);
                     break;
             }
         }

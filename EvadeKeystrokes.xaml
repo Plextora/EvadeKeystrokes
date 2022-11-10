@@ -13,7 +13,7 @@
         WindowStyle="None"
         Closing="WindowClose"
         Topmost="True">
-    <Grid>
+    <Grid x:Name="WindowGrid">
         <Button x:Name="WKeystroke" Content="W" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" FontSize="20" Margin="120,65,0,0"/>
         <Button x:Name="AKeystroke" Content="A" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" Margin="80,105,0,0" FontSize="20"/>
         <Button x:Name="SKeystroke" Content="S" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" Margin="120,105,0,0" FontSize="20"/>

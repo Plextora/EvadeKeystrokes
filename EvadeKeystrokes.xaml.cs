@@ -1,5 +1,7 @@
 ﻿using Gma.System.MouseKeyHook;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
@@ -17,6 +19,10 @@ namespace EvadeKeystrokes
         private IKeyboardMouseEvents m_GlobalHook;
         private static readonly Brush DefaultPressedBackgroundValue = new BrushConverter().ConvertFromString("#FFBEE6FD") as Brush;
         private static readonly Brush DefaultBackgroundValue = new BrushConverter().ConvertFromString("#FFDDDDDD") as Brush;
+        private static Brush BackgroundValue;
+        private static Brush PressedBackgroundValue;
+        private static string buttonBackground;
+        private static string pressedButtonBackground;
 
         public MainWindow()
         {
@@ -31,6 +37,29 @@ namespace EvadeKeystrokes
             {
                 File.Create("config.txt").Close();
             }
+
+            buttonBackground = File.ReadLines("config.txt").Skip(3).Take(1).First();
+            pressedButtonBackground = File.ReadLines("config.txt").Skip(4).Take(1).First();
+
+            BackgroundValue = new BrushConverter().ConvertFromString(buttonBackground) as Brush;
+            PressedBackgroundValue = new BrushConverter().ConvertFromString(pressedButtonBackground) as Brush;
+
+            foreach (Button button in FindVisualChildren<Button>(WindowGrid))
+            {
+                button.Background = BackgroundValue;
+            }
+        }
+
+        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        {
+            if (depObj == null) yield return (T)Enumerable.Empty<T>();
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+            {
+                DependencyObject ithChild = VisualTreeHelper.GetChild(depObj, i);
+                if (ithChild == null) continue;
+                if (ithChild is T t) yield return t;
+                foreach (T childOfChild in FindVisualChildren<T>(ithChild)) yield return childOfChild;
+            }
         }
 
         private void WindowClose(object sender, System.ComponentModel.CancelEventArgs e)
@@ -40,12 +69,12 @@ namespace EvadeKeystrokes
 
         private void ActivateButton(Button buttonName)
         {
-            buttonName.Background = DefaultPressedBackgroundValue;
+            buttonName.Background = PressedBackgroundValue;
         }
 
         private void DeactivateButton(Button buttonName)
         {
-            buttonName.Background = DefaultBackgroundValue;
+            buttonName.Background = BackgroundValue;
         }
 
         public void Subscribe()

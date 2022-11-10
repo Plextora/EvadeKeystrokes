@@ -67,6 +67,9 @@ namespace EvadeKeystrokes
                 case Keys.D2:
                     ActivateButton(TwoKeystroke);
                     break;
+                case Keys.R:
+                    ActivateButton(RKeystroke);
+                    break;
             }
         }
 
@@ -91,6 +94,9 @@ namespace EvadeKeystrokes
                     break;
                 case Keys.D2:
                     DeactivateButton(TwoKeystroke);
+                    break;
+                case Keys.R:
+                    DeactivateButton(RKeystroke);
                     break;
             }
         }

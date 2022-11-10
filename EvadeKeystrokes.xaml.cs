@@ -1,10 +1,11 @@
-﻿using System.Windows;
+﻿using Gma.System.MouseKeyHook;
+using System.IO;
+using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
-using Gma.System.MouseKeyHook;
-using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 using Button = System.Windows.Controls.Button;
+using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 
 namespace EvadeKeystrokes
 {
@@ -21,6 +22,15 @@ namespace EvadeKeystrokes
         {
             InitializeComponent();
             Subscribe();
+            Config();
+        }
+
+        private void Config()
+        {
+            if (!File.Exists("config.txt"))
+            {
+                File.Create("config.txt").Close();
+            }
         }
 
         private void WindowClose(object sender, System.ComponentModel.CancelEventArgs e)

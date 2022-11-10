@@ -77,6 +77,12 @@ namespace EvadeKeystrokes
                 case Keys.T:
                     ActivateButton(TKeystroke);
                     break;
+                case Keys.LControlKey:
+                    ActivateButton(CtrlorCKeystroke);
+                    break;
+                case Keys.C:
+                    ActivateButton(CtrlorCKeystroke);
+                    break;
             }
         }
 
@@ -110,6 +116,12 @@ namespace EvadeKeystrokes
                     break;
                 case Keys.T:
                     DeactivateButton(TKeystroke);
+                    break;
+                case Keys.LControlKey:
+                    DeactivateButton(CtrlorCKeystroke);
+                    break;
+                case Keys.C:
+                    DeactivateButton(CtrlorCKeystroke);
                     break;
             }
         }

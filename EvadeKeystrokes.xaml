@@ -24,5 +24,6 @@
         <Button x:Name="TKeystroke" Content="T" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" FontSize="20" Margin="200,125,0,0"/>
         <Button x:Name="SpacebarKeystroke" Content="Space" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="40" FontSize="20" Margin="29,125,0,0"/>
         <Canvas x:Name="InvisibleCanvas" ZIndex="-1" MouseLeftButtonDown="WindowMove" Background="#01000000"/>
+        <Button x:Name="CtrlorCKeystroke" Content="Ctrl/C" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="40" FontSize="20" Margin="29,170,0,0"/>
     </Grid>
 </Window>

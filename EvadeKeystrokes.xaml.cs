@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Input;
 using System.Windows.Media;
 using Gma.System.MouseKeyHook;
 using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
@@ -118,6 +119,11 @@ namespace EvadeKeystrokes
             m_GlobalHook.KeyDown -= OnKeyDown;
 
             m_GlobalHook.Dispose();
+        }
+
+        private void WindowMove(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

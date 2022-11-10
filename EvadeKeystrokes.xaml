@@ -19,5 +19,6 @@
         <Button x:Name="SKeystroke" Content="S" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" Margin="69,80,0,0" FontSize="20"/>
         <Button x:Name="DKeystroke" Content="D" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" Margin="109,80,0,0" FontSize="20"/>
         <Button x:Name="OneKeystroke" Content="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="40" Height="40" FontSize="20" Margin="0,80,0,0"/>
+        <Button x:Name="TwoKeystroke" Content="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" FontSize="20" Margin="200,80,0,0"/>
     </Grid>
 </Window>

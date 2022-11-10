@@ -64,6 +64,9 @@ namespace EvadeKeystrokes
                 case Keys.D1:
                     ActivateButton(OneKeystroke);
                     break;
+                case Keys.D2:
+                    ActivateButton(TwoKeystroke);
+                    break;
             }
         }
 
@@ -85,6 +88,9 @@ namespace EvadeKeystrokes
                     break;
                 case Keys.D1:
                     DeactivateButton(OneKeystroke);
+                    break;
+                case Keys.D2:
+                    DeactivateButton(TwoKeystroke);
                     break;
             }
         }

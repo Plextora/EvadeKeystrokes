@@ -18,12 +18,14 @@
         <Button x:Name="AKeystroke" Content="A" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" Margin="80,105,0,0" FontSize="20" BorderBrush="{x:Null}"/>
         <Button x:Name="SKeystroke" Content="S" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" Margin="120,105,0,0" FontSize="20" BorderBrush="{x:Null}"/>
         <Button x:Name="DKeystroke" Content="D" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" Margin="160,105,0,0" FontSize="20" BorderBrush="{x:Null}"/>
-        <Button x:Name="OneKeystroke" Content="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" FontSize="20" Margin="219,125,0,0" BorderBrush="{x:Null}"/>
-        <Button x:Name="TwoKeystroke" Content="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" FontSize="20" Margin="264,125,0,0" BorderBrush="{x:Null}"/>
-        <Button x:Name="RKeystroke" Content="R" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" FontSize="20" Margin="219,170,0,0" BorderBrush="{x:Null}"/>
-        <Button x:Name="TKeystroke" Content="T" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" FontSize="20" Margin="264,170,0,0" BorderBrush="{x:Null}"/>
+        <Button x:Name="OneKeystroke" Content="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" FontSize="20" Margin="210,105,0,0" BorderBrush="{x:Null}"/>
+        <Button x:Name="TwoKeystroke" Content="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" FontSize="20" Margin="255,105,0,0" BorderBrush="{x:Null}"/>
+        <Button x:Name="RKeystroke" Content="R" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" FontSize="20" Margin="210,150,0,0" BorderBrush="{x:Null}"/>
+        <Button x:Name="TKeystroke" Content="T" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" FontSize="20" Margin="255,150,0,0" BorderBrush="{x:Null}"/>
         <Button x:Name="SpacebarKeystroke" Content="Space" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="40" FontSize="20" Margin="80,150,0,0" BorderBrush="{x:Null}"/>
         <Canvas x:Name="InvisibleCanvas" ZIndex="-1" MouseLeftButtonDown="WindowMove" Background="#01000000"/>
         <Button x:Name="CtrlorCKeystroke" Content="Ctrl/C" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="40" FontSize="20" Margin="80,195,0,0" BorderBrush="{x:Null}"/>
+        <Button x:Name="EKeystroke" Content="E" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" FontSize="20" Margin="210,195,0,0" BorderBrush="{x:Null}"/>
+        <Button x:Name="QKeystroke" Content="Q" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="40" FontSize="20" Margin="255,195,0,0" BorderBrush="{x:Null}"/>
     </Grid>
 </Window>

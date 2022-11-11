@@ -86,20 +86,11 @@ namespace EvadeKeystrokes
             }
         }
 
-        private void WindowClose(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            Unsubscribe();
-        }
+        private void WindowClose(object sender, System.ComponentModel.CancelEventArgs e) => Unsubscribe();
 
-        private void ActivateButton(Button buttonName)
-        {
-            buttonName.Background = PressedBackgroundValue;
-        }
+        private void ActivateButton(Button buttonName) => buttonName.Background = PressedBackgroundValue;
 
-        private void DeactivateButton(Button buttonName)
-        {
-            buttonName.Background = BackgroundValue;
-        }
+        private void DeactivateButton(Button buttonName) => buttonName.Background = BackgroundValue;
 
         public void Subscribe()
         {
@@ -196,9 +187,6 @@ namespace EvadeKeystrokes
             m_GlobalHook.Dispose();
         }
 
-        private void WindowMove(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        private void WindowMove(object sender, MouseButtonEventArgs e) => DragMove();
     }
 }

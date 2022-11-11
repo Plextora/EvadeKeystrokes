@@ -19,11 +19,14 @@ namespace EvadeKeystrokes
         private IKeyboardMouseEvents m_GlobalHook;
         private static Brush BackgroundValue;
         private static Brush PressedBackgroundValue;
+        private static Brush ForegroundValue;
         private static string buttonBackground;
         private static string pressedButtonBackground;
+        private static string buttonForeground;
 
         private readonly string DefaultPressedBackgroundValue = "#FFBEE6FD";
         private readonly string DefaultBackgroundValue = "#FFDDDDDD";
+        private readonly string DefaultForegroundValue = "#FF000000";
 
         public MainWindow()
         {
@@ -40,27 +43,34 @@ namespace EvadeKeystrokes
 
                 string text =
                     "# 1st line is for button background\n" +
-                    "# 2nd line is for button background when pressed\n\n" +
+                    "# 2nd line is for button background when pressed\n" +
+                    "# 3rd line is for button foreground\n\n" +
                     $"{DefaultBackgroundValue}\n" +
-                    $"{DefaultPressedBackgroundValue}\n";
+                    $"{DefaultPressedBackgroundValue}\n" +
+                    $"{DefaultForegroundValue}";
 
                 File.WriteAllText("config.txt", text);
-
+            }
+            else
+            {
                 LoadConfig();
             }
         }
 
         private void LoadConfig()
         {
-            buttonBackground = File.ReadLines("config.txt").Skip(3).Take(1).First();
-            pressedButtonBackground = File.ReadLines("config.txt").Skip(4).Take(1).First();
+            buttonBackground = File.ReadLines("config.txt").Skip(4).Take(1).First();
+            pressedButtonBackground = File.ReadLines("config.txt").Skip(5).Take(1).First();
+            buttonForeground = File.ReadLines("config.txt").Skip(6).Take(1).First();
 
             BackgroundValue = new BrushConverter().ConvertFromString(buttonBackground) as Brush;
             PressedBackgroundValue = new BrushConverter().ConvertFromString(pressedButtonBackground) as Brush;
+            ForegroundValue = new BrushConverter().ConvertFromString(buttonForeground) as Brush;
 
             foreach (Button button in FindVisualChildren<Button>(WindowGrid))
             {
                 button.Background = BackgroundValue;
+                button.Foreground = ForegroundValue;
             }
         }
 

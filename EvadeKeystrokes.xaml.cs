@@ -17,27 +17,41 @@ namespace EvadeKeystrokes
     public partial class MainWindow : Window
     {
         private IKeyboardMouseEvents m_GlobalHook;
-        private static readonly Brush DefaultPressedBackgroundValue = new BrushConverter().ConvertFromString("#FFBEE6FD") as Brush;
-        private static readonly Brush DefaultBackgroundValue = new BrushConverter().ConvertFromString("#FFDDDDDD") as Brush;
         private static Brush BackgroundValue;
         private static Brush PressedBackgroundValue;
         private static string buttonBackground;
         private static string pressedButtonBackground;
 
+        private readonly string DefaultPressedBackgroundValue = "#FFBEE6FD";
+        private readonly string DefaultBackgroundValue = "#FFDDDDDD";
+
         public MainWindow()
         {
             InitializeComponent();
             Subscribe();
-            Config();
+            CreateConfig();
         }
 
-        private void Config()
+        private void CreateConfig()
         {
             if (!File.Exists("config.txt"))
             {
                 File.Create("config.txt").Close();
-            }
 
+                string text =
+                    "# 1st line is for button background\n" +
+                    "# 2nd line is for button background when pressed\n\n" +
+                    $"{DefaultBackgroundValue}\n" +
+                    $"{DefaultPressedBackgroundValue}\n";
+
+                File.WriteAllText("config.txt", text);
+
+                LoadConfig();
+            }
+        }
+
+        private void LoadConfig()
+        {
             buttonBackground = File.ReadLines("config.txt").Skip(3).Take(1).First();
             pressedButtonBackground = File.ReadLines("config.txt").Skip(4).Take(1).First();
 

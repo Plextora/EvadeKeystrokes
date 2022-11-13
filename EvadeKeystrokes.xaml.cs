@@ -50,6 +50,10 @@ namespace EvadeKeystrokes
                     $"{DefaultForegroundValue}";
 
                 File.WriteAllText("config.txt", text);
+
+                BackgroundValue = new BrushConverter().ConvertFromString(DefaultBackgroundValue) as Brush;
+                PressedBackgroundValue = new BrushConverter().ConvertFromString(DefaultPressedBackgroundValue) as Brush;
+                ForegroundValue = new BrushConverter().ConvertFromString(DefaultForegroundValue) as Brush;
             }
             else
             {

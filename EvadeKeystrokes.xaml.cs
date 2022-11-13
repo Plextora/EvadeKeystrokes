@@ -1,4 +1,5 @@
-﻿// This file is licensed under GPL-v3.0
+﻿// Copyright 2022 Plextora
+// This file is licensed under GPL-v3.0
 
 using Gma.System.MouseKeyHook;
 using System.Collections.Generic;

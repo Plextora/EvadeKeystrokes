@@ -1,4 +1,5 @@
-﻿<!-- This file is licensed under GPL-v3.0 -->
+﻿<!-- Copyright 2022 Plextora -->
+<!-- This file is licensed under GPL-v3.0 -->
 
 <Window x:Class="EvadeKeystrokes.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"

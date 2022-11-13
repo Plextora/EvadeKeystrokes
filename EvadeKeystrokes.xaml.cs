@@ -1,4 +1,6 @@
-﻿using Gma.System.MouseKeyHook;
+﻿// This file is licensed under GPL-v3.0
+
+using Gma.System.MouseKeyHook;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

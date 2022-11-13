@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Evade Keystrokes"
-#define MyAppVersion "1.2"
+#define MyAppVersion "1.1.1"
 #define MyAppPublisher "Plextora"
 #define MyAppURL "https://github.com/Plextora/EvadeKeystrokes#readme"
 #define MyAppExeName "Evade Keystrokes.exe"

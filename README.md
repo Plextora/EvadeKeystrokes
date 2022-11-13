@@ -2,7 +2,7 @@
 
 ![Evade Keystrokes Logo](https://raw.githubusercontent.com/Plextora/EvadeKeystrokes/master/Logo/evadekeystrokesicon.png)
 
-![Demo gif](https://s3.us-east-1.wasabisys.com/e-zimagehosting/6772311b-db7f-40a3-ac88-76533340acc8/q8z4l40b.gif)
+![Demo gif](https://s3.us-east-1.wasabisys.com/e-zimagehosting/6772311b-db7f-40a3-ac88-76533340acc8/o34k2frj.gif)
 
 Customizable & fast keystrokes for the ROBLOX game Evade!
 

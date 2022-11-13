@@ -35,6 +35,9 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
+;; !!!! FOR POTENTIONAL CONTRIBUTORS !!!!
+;; Change the sources to the path of where you build EvadeKeystrokes!
+;; Or you could just use the install script wizard
 [Files]
 Source: "C:\EvadeKeystrokes\bin\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\EvadeKeystrokes\bin\Release\Gma.System.MouseKeyHook.dll"; DestDir: "{app}"; Flags: ignoreversion

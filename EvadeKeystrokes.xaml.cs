@@ -30,6 +30,7 @@ namespace EvadeKeystrokes
         private readonly string DefaultPressedValue = "#FFBEE6FD";
         private readonly string DefaultBackgroundBorderValue = "#FFDDDDDD";
         private readonly string DefaultForegroundValue = "#FF000000";
+        private readonly Brush EmptyBrush = new BrushConverter().ConvertFrom("#00FFFFFF") as Brush;
 
         private bool useBorder;
 
@@ -128,7 +129,7 @@ namespace EvadeKeystrokes
         {
             if (useBorder)
             {
-                buttonName.BorderBrush = BackgroundBorderValue;
+                buttonName.BorderBrush = EmptyBrush;
             }
             else
             {

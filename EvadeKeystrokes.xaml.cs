@@ -20,16 +20,18 @@ namespace EvadeKeystrokes
     public partial class MainWindow : Window
     {
         private IKeyboardMouseEvents m_GlobalHook;
-        private static Brush BackgroundValue;
-        private static Brush PressedBackgroundValue;
+        private static Brush BackgroundBorderValue;
+        private static Brush PressedValue;
         private static Brush ForegroundValue;
-        private static string buttonBackground;
-        private static string pressedButtonBackground;
+        private static string buttonBorderValue;
+        private static string pressedButtonValue;
         private static string buttonForeground;
 
-        private readonly string DefaultPressedBackgroundValue = "#FFBEE6FD";
-        private readonly string DefaultBackgroundValue = "#FFDDDDDD";
+        private readonly string DefaultPressedValue = "#FFBEE6FD";
+        private readonly string DefaultBackgroundBorderValue = "#FFDDDDDD";
         private readonly string DefaultForegroundValue = "#FF000000";
+
+        private bool useBorder;
 
         public MainWindow()
         {
@@ -46,16 +48,20 @@ namespace EvadeKeystrokes
 
                 string text =
                     "# 1st line is for button background\n" +
-                    "# 2nd line is for button background when pressed\n" +
-                    "# 3rd line is for button foreground\n\n" +
-                    $"{DefaultBackgroundValue}\n" +
-                    $"{DefaultPressedBackgroundValue}\n" +
-                    $"{DefaultForegroundValue}";
+                    "# 2nd line is for button background/border when pressed\n" +
+                    "# 3rd line is for button foreground\n" +
+                    "# 4rd line is to tell Evade Keystrokes if you want to highlight the background or border when a key is pressed\n" +
+                    "# For example, useborder:false would tell Evade Keystrokes to highlight the background\n" +
+                    "# useborder:true would tell Evade Keystrokes to highlight the border\n\n" +
+                    $"{DefaultBackgroundBorderValue}\n" +
+                    $"{DefaultPressedValue}\n" +
+                    $"{DefaultForegroundValue}\n" +
+                    "useborder:false";
 
                 File.WriteAllText("config.txt", text);
 
-                BackgroundValue = new BrushConverter().ConvertFromString(DefaultBackgroundValue) as Brush;
-                PressedBackgroundValue = new BrushConverter().ConvertFromString(DefaultPressedBackgroundValue) as Brush;
+                BackgroundBorderValue = new BrushConverter().ConvertFromString(DefaultBackgroundBorderValue) as Brush;
+                PressedValue = new BrushConverter().ConvertFromString(DefaultPressedValue) as Brush;
                 ForegroundValue = new BrushConverter().ConvertFromString(DefaultForegroundValue) as Brush;
             }
             else
@@ -66,18 +72,29 @@ namespace EvadeKeystrokes
 
         private void LoadConfig()
         {
-            buttonBackground = File.ReadLines("config.txt").Skip(4).Take(1).First();
-            pressedButtonBackground = File.ReadLines("config.txt").Skip(5).Take(1).First();
-            buttonForeground = File.ReadLines("config.txt").Skip(6).Take(1).First();
+            buttonBorderValue = GetLine(8);
+            pressedButtonValue = GetLine(9);
+            buttonForeground = GetLine(10);
+            useBorder = GetLine(11) == "useborder:true";
 
-            BackgroundValue = new BrushConverter().ConvertFromString(buttonBackground) as Brush;
-            PressedBackgroundValue = new BrushConverter().ConvertFromString(pressedButtonBackground) as Brush;
+            BackgroundBorderValue = new BrushConverter().ConvertFromString(buttonBorderValue) as Brush;
+            PressedValue = new BrushConverter().ConvertFromString(pressedButtonValue) as Brush;
             ForegroundValue = new BrushConverter().ConvertFromString(buttonForeground) as Brush;
 
             foreach (Button button in FindVisualChildren<Button>(WindowGrid))
             {
-                button.Background = BackgroundValue;
+                button.Background = BackgroundBorderValue;
                 button.Foreground = ForegroundValue;
+            }
+        }
+
+        string GetLine(int line)
+        {
+            using (var sr = new StreamReader("config.txt"))
+            {
+                for (int i = 1; i < line; i++)
+                    sr.ReadLine();
+                return sr.ReadLine();
             }
         }
 
@@ -95,9 +112,29 @@ namespace EvadeKeystrokes
 
         private void WindowClose(object sender, System.ComponentModel.CancelEventArgs e) => Unsubscribe();
 
-        private void ActivateButton(Button buttonName) => buttonName.Background = PressedBackgroundValue;
+        private void ActivateButton(Button buttonName)
+        {
+            if (useBorder)
+            {
+                buttonName.BorderBrush = PressedValue;
+            }
+            else
+            {
+                buttonName.Background = PressedValue;
+            }
+        }
 
-        private void DeactivateButton(Button buttonName) => buttonName.Background = BackgroundValue;
+        private void DeactivateButton(Button buttonName)
+        {
+            if (useBorder)
+            {
+                buttonName.BorderBrush = BackgroundBorderValue;
+            }
+            else
+            {
+                buttonName.Background = BackgroundBorderValue;
+            }
+        }
 
         public void Subscribe()
         {

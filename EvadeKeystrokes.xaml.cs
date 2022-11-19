@@ -12,6 +12,13 @@ using System.Windows.Media;
 using Button = System.Windows.Controls.Button;
 using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 
+#region Todo list
+/*
+ * Clean up OnKeyDown and OnKeyUp functions
+ * (Maybe) fix redundant variables
+ */
+#endregion
+
 namespace EvadeKeystrokes
 {
     /// <summary>
@@ -45,6 +52,7 @@ namespace EvadeKeystrokes
         {
             if (!File.Exists("config.txt"))
             {
+                // actually creates the config.txt
                 File.Create("config.txt").Close();
 
                 string text =
@@ -61,6 +69,7 @@ namespace EvadeKeystrokes
 
                 File.WriteAllText("config.txt", text);
 
+                // Loads default config
                 BackgroundBorderValue = new BrushConverter().ConvertFromString(DefaultBackgroundBorderValue) as Brush;
                 PressedValue = new BrushConverter().ConvertFromString(DefaultPressedValue) as Brush;
                 ForegroundValue = new BrushConverter().ConvertFromString(DefaultForegroundValue) as Brush;
@@ -73,15 +82,23 @@ namespace EvadeKeystrokes
 
         private void LoadConfig()
         {
+            // assign variables to lines from config.txt
             buttonBorderValue = GetLine(8);
             pressedButtonValue = GetLine(9);
             buttonForeground = GetLine(10);
             useBorder = GetLine(11) == "useborder:true";
 
+            /*
+             * I only use buttonBorderValue, pressedButtonValue, and buttonForeground once or twice.
+             * This also happens in another functions as well
+             * Kinda redundant?
+             * idk, probably wont fix this but it goes in the todo list anyways
+             */
             BackgroundBorderValue = new BrushConverter().ConvertFromString(buttonBorderValue) as Brush;
             PressedValue = new BrushConverter().ConvertFromString(pressedButtonValue) as Brush;
             ForegroundValue = new BrushConverter().ConvertFromString(buttonForeground) as Brush;
 
+            // Assigns all of the buttons backgrounds and foregrounds to BackgroundBorderValue and ForegroundValue
             foreach (Button button in FindVisualChildren<Button>(WindowGrid))
             {
                 button.Background = BackgroundBorderValue;
@@ -99,6 +116,10 @@ namespace EvadeKeystrokes
             }
         }
 
+        /*
+         * I have no idea why or how it works but it works but thank you StackOverflow gods
+         * https://stackoverflow.com/a/978352/20083929
+         */
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
         {
             if (depObj == null) yield return (T)Enumerable.Empty<T>();
@@ -113,6 +134,8 @@ namespace EvadeKeystrokes
 
         private void WindowClose(object sender, System.ComponentModel.CancelEventArgs e) => Unsubscribe();
 
+
+        // Make the button look like it's pressed using the user's config values
         private void ActivateButton(Button buttonName)
         {
             if (useBorder)
@@ -125,6 +148,7 @@ namespace EvadeKeystrokes
             }
         }
 
+        // Make the button look normal using the user's config values
         private void DeactivateButton(Button buttonName)
         {
             if (useBorder)
@@ -144,6 +168,8 @@ namespace EvadeKeystrokes
             m_GlobalHook.KeyDown += OnKeyDown;
             m_GlobalHook.KeyUp += OnKeyUp;
         }
+
+        // SPAGHETTI CODE INCOMING!!!
 
         private void OnKeyDown(object sender, KeyEventArgs e)
         {
